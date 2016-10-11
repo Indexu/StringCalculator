@@ -6,6 +6,7 @@ public class Calculator
 {
     private static final String negativeMessage = "Negatives not allowed: ";
     private static final int maxNumber = 1000;
+    private static String delim = ",|\\n";
 
     public static int add(String numbers)
     {
@@ -13,16 +14,19 @@ public class Calculator
         {
             return 0;
         }
-        else if(numbers.contains(",") || numbers.contains("\n")){
-            String[] split = numbers.split(",|\n");
-            int[] nums = toInt(split);
 
-            checkForNegatives(nums);
-
-            return sumArray(nums);
+        if(numbers.contains("//"))
+        {
+            delim = delim + "|" + numbers.substring(2,3);
+            numbers = numbers.substring(4);
         }
 
-        return toInt(numbers);
+        String[] split = numbers.split(delim);
+        int[] nums = toInt(split);
+
+        checkForNegatives(nums);
+
+        return sumArray(nums);
     }
 
     private static int toInt(String num)

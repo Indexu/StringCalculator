@@ -74,4 +74,10 @@ public class CalculatorTest
     {
         assertEquals(2, Calculator.add("1001,2"));
     }
+
+    @Test
+    public void testChangeDelmiter()
+    {
+        assertEquals(3, Calculator.add("//;\n1;2"));
+    }
 }
