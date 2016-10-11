@@ -11,7 +11,14 @@ public class Calculator
         else if(numbers.contains(",")){
             String[] split = numbers.split(",");
 
-            return toInt(split[0]) + toInt(split[1]);
+            int sum = 0;
+
+            for(String num : split)
+            {
+                sum += toInt(num);
+            }
+
+            return sum;
         }
 
         return toInt(numbers);
