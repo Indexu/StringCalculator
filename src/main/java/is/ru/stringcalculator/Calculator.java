@@ -15,7 +15,14 @@ public class Calculator
 
             for(String num : split)
             {
-                sum += toInt(num);
+                int n = toInt(num);
+
+                if(n < 0)
+                {
+                    throw new IllegalArgumentException("Negatives not allowed: " + num);
+                }
+
+                sum += n;
             }
 
             return sum;
