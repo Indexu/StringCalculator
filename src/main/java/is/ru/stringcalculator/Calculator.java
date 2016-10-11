@@ -15,14 +15,9 @@ public class Calculator
             return 0;
         }
 
-        if(numbers.contains("//"))
-        {
-            delim = delim + "|" + numbers.substring(2,3);
-            numbers = numbers.substring(4);
-        }
+        numbers = checkForDelimiter(numbers);
 
-        String[] split = numbers.split(delim);
-        int[] nums = toInt(split);
+        int[] nums = numberStringToIntArray(numbers);
 
         checkForNegatives(nums);
 
@@ -89,5 +84,22 @@ public class Calculator
         }
 
         return sum;
+    }
+
+    private static String checkForDelimiter(String numbers)
+    {
+        if(numbers.contains("//"))
+        {
+            delim = delim + "|" + numbers.substring(2,3);
+            numbers = numbers.substring(4);
+        }
+
+        return numbers;
+    }
+
+    private static int[] numberStringToIntArray(String numbers)
+    {
+        String[] split = numbers.split(delim);
+        return toInt(split);
     }
 }

@@ -80,4 +80,10 @@ public class CalculatorTest
     {
         assertEquals(3, Calculator.add("//;\n1;2"));
     }
+
+    @Test
+    public void testMixingDelmiters()
+    {
+        assertEquals(55, Calculator.add("//;\n1;2,3\n4,5;6;7\n8,9;10"));
+    }
 }
