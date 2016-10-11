@@ -8,7 +8,17 @@ public class Calculator
         {
             return 0;
         }
+        else if(numbers.contains(",")){
+            String[] split = numbers.split(",");
 
-        return Integer.parseInt(numbers);
+            return toInt(split[0]) + toInt(split[1]);
+        }
+
+        return toInt(numbers);
+    }
+
+    private static int toInt(String num)
+    {
+        return Integer.parseInt(num);
     }
 }
