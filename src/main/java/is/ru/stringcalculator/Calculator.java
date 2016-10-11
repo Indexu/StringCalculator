@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class Calculator
 {
+    private static final String negativeMessage = "Negatives not allowed: ";
+    private static final int maxNumber = 1000;
+
     public static int add(String numbers)
     {
         if(numbers.isEmpty())
@@ -15,7 +18,7 @@ public class Calculator
             int[] nums = toInt(split);
 
             checkForNegatives(nums);
-            
+
             return sumArray(nums);
         }
 
@@ -65,7 +68,7 @@ public class Calculator
                 }
             }
 
-            throw new IllegalArgumentException("Negatives not allowed: " + negatives);
+            throw new IllegalArgumentException(negativeMessage + negatives);
         }
     }
 
@@ -75,7 +78,10 @@ public class Calculator
 
         for(int num : nums)
         {
-            sum += num;
+            if(num <= maxNumber)
+            {
+                sum += num;
+            }
         }
 
         return sum;
