@@ -8,8 +8,8 @@ public class Calculator
         {
             return 0;
         }
-        else if(numbers.contains(",")){
-            String[] split = numbers.split(",");
+        else if(numbers.contains(",") || numbers.contains("\n")){
+            String[] split = numbers.split(",|\n");
 
             int sum = 0;
 
